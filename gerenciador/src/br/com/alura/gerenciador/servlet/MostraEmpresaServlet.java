@@ -9,27 +9,28 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.modelo.Banco;
+import br.com.alura.gerenciador.modelo.Empresa;
 
 @WebServlet("/mostraEmpresa")
 public class MostraEmpresaServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String paramId = request.getParameter("id");
-		Integer id = Integer.valueOf(paramId);
-		
-		Banco banco = new Banco();
-		
-		Empresa empresa = banco.buscaEmpresaPelaId(id);
-		
-		System.out.println(empresa.getNome());
+	String paramId = request.getParameter("id");
+	Integer id = Integer.valueOf(paramId);
 
-		request.setAttribute("empresa", empresa);
-		
-		RequestDispatcher rd = request.getRequestDispatcher("/formAlteraEmpresa.jsp");
-		rd.forward(request, response);
-	}
+	Banco banco = new Banco();
+
+	Empresa empresa = banco.buscaEmpresaPelaId(id);
+
+	System.out.println(empresa.getNome());
+
+	request.setAttribute("empresa", empresa);
+
+	RequestDispatcher rd = request.getRequestDispatcher("/formAlteraEmpresa.jsp");
+	rd.forward(request, response);
+    }
 
 }
