@@ -11,12 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
-public class ListaEmpresa {
+public class ListaEmpresa implements Acao {
 
+    @Override
     public void executa(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-	Banco banco = new Banco();
-	List<Empresa> lista = banco.getEmpresas();
+	List<Empresa> lista = new Banco().getEmpresas();
 
 	request.setAttribute("empresas", lista);
 
