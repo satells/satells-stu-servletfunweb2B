@@ -10,14 +10,30 @@ public class Banco {
     private static Integer chaveSequencial = 1;
 
     static {
+	addEmpresa("Casa das Ferramentas");
+	addEmpresa("Mercado Boa Comida Ltda");
+	addEmpresa("ATIVOS S.A. Securitizadora de Créditos Financeiros");
+	addEmpresa("Banco do Brasil Agência Viena/Áustria");
+	addEmpresa("BB Administradora de Cartões de Crédito S.A.");
+	addEmpresa("BB Administradora de Consórcios S.A.");
+	addEmpresa("BB Banco de Investimento S.A.");
+	addEmpresa("BB Corretora de Seguros e Administradora de Bens S.A.");
+	addEmpresa("BB ELO CARTÕES Participações S.A.");
+	addEmpresa("BB Gestão de Recursos Distribuidora de Títulos e Valores Mobiliários S.A.");
+	addEmpresa("BB Leasing Company Limited - Ilhas Cayman");
+	addEmpresa("BB Leasing S.A. Arrendamento Mercantil");
+	addEmpresa("BB Seguridade Participações S.A.");
+	addEmpresa("BB Seguros Participações S.A.");
+	addEmpresa("BESC Distribuidora de Títulos e Valores Mobiliários S.A.");
+	addEmpresa("Brasilian American Merchant Bank");
+
+    }
+
+    private static void addEmpresa(String nome) {
 	Empresa empresa = new Empresa();
 	empresa.setId(chaveSequencial++);
-	empresa.setNome("Alura");
-	Empresa empresa2 = new Empresa();
-	empresa2.setId(chaveSequencial++);
-	empresa2.setNome("Caelum");
+	empresa.setNome(nome);
 	lista.add(empresa);
-	lista.add(empresa2);
     }
 
     public void adiciona(Empresa empresa) {
