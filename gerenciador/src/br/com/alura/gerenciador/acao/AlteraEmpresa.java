@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.controler.HttpFlow;
-import br.com.alura.gerenciador.controler.Redirect;
+import br.com.alura.gerenciador.controler.RedirectResponse;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
@@ -39,7 +39,7 @@ public class AlteraEmpresa implements Acao {
 	    empresa.setNome(nomeEmpresa);
 	    empresa.setDataAbertura(dataAbertura);
 
-	    return new Redirect("entrada?acao=ListaEmpresas");
+	    return new RedirectResponse("entrada?acao=ListaEmpresas");
 	} catch (NumberFormatException e) {
 	    throw new ServletException(e);
 	}

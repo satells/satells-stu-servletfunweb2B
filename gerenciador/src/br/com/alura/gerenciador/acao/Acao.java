@@ -8,6 +8,6 @@ import br.com.alura.gerenciador.controler.HttpFlow;
 
 public interface Acao {
 
-    public HttpFlow exec(HttpServletRequest request, HttpServletResponse response) throws ServletException;
+    HttpFlow exec(HttpServletRequest request, HttpServletResponse response) throws ServletException;
 
 }

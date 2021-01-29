@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.controler.HttpFlow;
-import br.com.alura.gerenciador.controler.Redirect;
+import br.com.alura.gerenciador.controler.RedirectResponse;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
@@ -39,6 +39,6 @@ public class NovaEmpresa implements Acao {
 
 	request.setAttribute("empresa", empresa.getNome());
 
-	return new Redirect("entrada?acao=ListaEmpresas");
+	return new RedirectResponse("entrada?acao=ListaEmpresas");
     }
 }
