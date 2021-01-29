@@ -4,14 +4,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.controler.HttpFlow;
+import br.com.alura.gerenciador.controler.Redirect;
 import br.com.alura.gerenciador.modelo.Banco;
 
-public class RemoveEmpresa extends Acao {
-
-    private static final String LOCATION = "entrada?acao=ListaEmpresas";
+public class RemoveEmpresa implements Acao {
 
     @Override
-    public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public HttpFlow exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
 	try {
 	    String paramId = request.getParameter("id");
@@ -22,8 +22,8 @@ public class RemoveEmpresa extends Acao {
 	    Banco banco = new Banco();
 	    banco.removeEmpresa(id);
 
-	    redirectTrue();
-	    return LOCATION;
+	    return new Redirect("entrada?acao=ListaEmpresas");
+
 	} catch (NumberFormatException e) {
 	    throw new ServletException(e);
 	}

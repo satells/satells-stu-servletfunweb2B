@@ -4,15 +4,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.controler.Forward;
+import br.com.alura.gerenciador.controler.HttpFlow;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
-public class MostraEmpresa extends Acao {
-
-    private static final String LOCATION = "/formAlteraEmpresa.jsp";
+public class MostraEmpresa implements Acao {
 
     @Override
-    public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public HttpFlow exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 	try {
 	    String paramId = request.getParameter("id");
 	    Integer id = Integer.valueOf(paramId);
@@ -26,8 +26,7 @@ public class MostraEmpresa extends Acao {
 
 	    request.setAttribute("empresa", empresa);
 
-	    forwardTrue();
-	    return LOCATION;
+	    return new Forward("/WEB-INF/view/formAlteraEmpresa.jsp");
 	} catch (NumberFormatException e) {
 	    throw new ServletException(e);
 	}

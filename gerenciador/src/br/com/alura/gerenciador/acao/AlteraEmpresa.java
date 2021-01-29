@@ -8,15 +8,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.controler.HttpFlow;
+import br.com.alura.gerenciador.controler.Redirect;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
-public class AlteraEmpresa extends Acao {
+public class AlteraEmpresa implements Acao {
 
-    private static final String LOCATION = "entrada?acao=ListaEmpresas";
-
-    @Override
-    public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public HttpFlow exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 	try {
 	    System.out.println("Alterando empresa");
 
@@ -40,9 +39,7 @@ public class AlteraEmpresa extends Acao {
 	    empresa.setNome(nomeEmpresa);
 	    empresa.setDataAbertura(dataAbertura);
 
-	    redirectTrue();
-	    return LOCATION;
-
+	    return new Redirect("entrada?acao=ListaEmpresas");
 	} catch (NumberFormatException e) {
 	    throw new ServletException(e);
 	}

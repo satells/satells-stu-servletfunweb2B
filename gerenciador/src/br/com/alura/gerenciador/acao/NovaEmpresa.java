@@ -8,15 +8,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.com.alura.gerenciador.controler.HttpFlow;
+import br.com.alura.gerenciador.controler.Redirect;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
 
-public class NovaEmpresa extends Acao {
-
-    private static final String LOCATION = "entrada?acao=ListaEmpresas";
+public class NovaEmpresa implements Acao {
 
     @Override
-    public String exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    public HttpFlow exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 	System.out.println("Cadastrando nova empresa");
 
 	String nomeEmpresa = request.getParameter("nome");
@@ -39,7 +39,6 @@ public class NovaEmpresa extends Acao {
 
 	request.setAttribute("empresa", empresa.getNome());
 
-	redirectTrue();
-	return LOCATION;
+	return new Redirect("entrada?acao=ListaEmpresas");
     }
 }

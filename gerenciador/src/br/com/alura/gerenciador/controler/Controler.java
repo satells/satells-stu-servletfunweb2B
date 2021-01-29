@@ -1,10 +1,8 @@
-package br.com.alura.gerenciador.servlet;
+package br.com.alura.gerenciador.controler;
 
-import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,24 +21,14 @@ public class Controler extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+	String parametro = request.getParameter(Util.PARAMETER);
 
-	try {
-	    String parametro = request.getParameter(Util.PARAMETER);
+	Acao acao = criaInstancia(Acao.class, parametro);
 
-	    Acao acao = criaInstancia(Acao.class, parametro);
+	HttpFlow flow = acao.exec(request, response);
 
-	    String result = acao.exec(request, response);
+	flow.send(request, response);
 
-	    if (acao.isForward()) {
-		RequestDispatcher rd = request.getRequestDispatcher(result);
-		rd.forward(request, response);
-	    } else if (acao.isRedirect()) {
-		response.sendRedirect(result);
-	    }
-
-	} catch (IOException e) {
-	    throw new ServletException(e);
-	}
     }
 
     private <T> T criaInstancia(Class<T> classe, String parametro) throws ServletException {
