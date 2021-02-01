@@ -22,7 +22,7 @@ public class RemoveEmpresa implements Acao {
 	    Banco banco = new Banco();
 	    banco.removeEmpresa(id);
 
-	    return new RedirectResponse("entrada?acao=ListaEmpresas");
+	    return new RedirectResponse("ListaEmpresas");
 
 	} catch (NumberFormatException e) {
 	    throw new ServletException(e);

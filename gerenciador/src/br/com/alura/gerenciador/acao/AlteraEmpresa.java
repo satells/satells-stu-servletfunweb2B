@@ -39,7 +39,7 @@ public class AlteraEmpresa implements Acao {
 	    empresa.setNome(nomeEmpresa);
 	    empresa.setDataAbertura(dataAbertura);
 
-	    return new RedirectResponse("entrada?acao=ListaEmpresas");
+	    return new RedirectResponse("ListaEmpresas");
 	} catch (NumberFormatException e) {
 	    throw new ServletException(e);
 	}

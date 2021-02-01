@@ -9,6 +9,8 @@ public class Banco {
     private static List<Empresa> lista = new ArrayList<>();
     private static Integer chaveSequencial = 1;
 
+    private static List<Usuario> listaUsuarios = new ArrayList<>();
+
     static {
 	addEmpresa("Casa das Ferramentas");
 	addEmpresa("Mercado Boa Comida Ltda");
@@ -27,6 +29,15 @@ public class Banco {
 	addEmpresa("BESC Distribuidora de Títulos e Valores Mobiliários S.A.");
 	addEmpresa("Brasilian American Merchant Bank");
 
+	addUsuario("ana", "123");
+	addUsuario("mauro", "123");
+    }
+
+    private static void addUsuario(String login, String senha) {
+	Usuario u = new Usuario();
+	u.setLogin(login);
+	u.setSenha(senha);
+	listaUsuarios.add(u);
     }
 
     private static void addEmpresa(String nome) {
@@ -62,6 +73,15 @@ public class Banco {
 	for (Empresa empresa : lista) {
 	    if (empresa.getId() == id) {
 		return empresa;
+	    }
+	}
+	return null;
+    }
+
+    public Usuario existeUsuario(String login, String senha) {
+	for (Usuario usuario : listaUsuarios) {
+	    if (usuario.ehIgual(login, senha)) {
+		return usuario;
 	    }
 	}
 	return null;
