@@ -6,9 +6,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class RedirectResponse extends HttpFlow {
+public class Redirect extends HttpFlow {
 
-    public RedirectResponse(String location) {
+    public Redirect(String location) {
 	super(location);
     }
 

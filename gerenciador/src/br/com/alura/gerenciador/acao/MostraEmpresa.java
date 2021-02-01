@@ -4,7 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.controler.DispatcherRequest;
+import br.com.alura.gerenciador.controler.Forward;
 import br.com.alura.gerenciador.controler.HttpFlow;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Empresa;
@@ -26,7 +26,7 @@ public class MostraEmpresa implements Acao {
 
 	    request.setAttribute("empresa", empresa);
 
-	    return new DispatcherRequest("formAlteraEmpresa.jsp");
+	    return new Forward("formAlteraEmpresa.jsp");
 	} catch (NumberFormatException e) {
 	    throw new ServletException(e);
 	}

@@ -7,9 +7,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DispatcherRequest extends HttpFlow {
+public class Forward extends HttpFlow {
 
-    public DispatcherRequest(String location) {
+    public Forward(String location) {
 	super(location);
     }
 

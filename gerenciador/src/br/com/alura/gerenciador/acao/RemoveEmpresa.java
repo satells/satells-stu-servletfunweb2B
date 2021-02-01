@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.alura.gerenciador.controler.HttpFlow;
-import br.com.alura.gerenciador.controler.RedirectResponse;
+import br.com.alura.gerenciador.controler.Redirect;
 import br.com.alura.gerenciador.modelo.Banco;
 
 public class RemoveEmpresa implements Acao {
@@ -22,7 +22,7 @@ public class RemoveEmpresa implements Acao {
 	    Banco banco = new Banco();
 	    banco.removeEmpresa(id);
 
-	    return new RedirectResponse("ListaEmpresas");
+	    return new Redirect("ListaEmpresas");
 
 	} catch (NumberFormatException e) {
 	    throw new ServletException(e);

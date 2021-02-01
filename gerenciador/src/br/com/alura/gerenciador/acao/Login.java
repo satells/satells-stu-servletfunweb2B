@@ -6,7 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import br.com.alura.gerenciador.controler.HttpFlow;
-import br.com.alura.gerenciador.controler.RedirectResponse;
+import br.com.alura.gerenciador.controler.Redirect;
 import br.com.alura.gerenciador.modelo.Banco;
 import br.com.alura.gerenciador.modelo.Usuario;
 
@@ -27,9 +27,9 @@ public class Login implements Acao {
 	    HttpSession sessao = request.getSession();
 	    sessao.setAttribute("usuarioLogado", usuario);
 
-	    return new RedirectResponse("ListaEmpresas");
+	    return new Redirect("ListaEmpresas");
 	} else {
-	    return new RedirectResponse("FormLogin");
+	    return new Redirect("FormLogin");
 	}
     }
 }

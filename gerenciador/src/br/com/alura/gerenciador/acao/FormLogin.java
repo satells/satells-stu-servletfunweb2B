@@ -4,7 +4,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.com.alura.gerenciador.controler.DispatcherRequest;
+import br.com.alura.gerenciador.controler.Forward;
 import br.com.alura.gerenciador.controler.HttpFlow;
 
 public class FormLogin implements Acao {
@@ -12,7 +12,7 @@ public class FormLogin implements Acao {
     @Override
     public HttpFlow exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
-	return new DispatcherRequest("formLogin.jsp");
+	return new Forward("formLogin.jsp");
     }
 
 }
