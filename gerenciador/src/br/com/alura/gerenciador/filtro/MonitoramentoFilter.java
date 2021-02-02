@@ -13,7 +13,7 @@ public class MonitoramentoFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-	System.out.println("MonitoramentoFilter");
+	System.out.println("Monitoramento  ->>>-  Filter");
 	long start = System.currentTimeMillis();
 	String acao = request.getParameter("acao");
 	chain.doFilter(request, response);
