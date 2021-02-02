@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 public class Util {
     private static final String SEM_ACAO = "SemAcao";
 
-    public static final String PARAMETER = "acao";
+    public static final String ACAO = "acao";
 
     private static ResourceBundle BUNDLE = ResourceBundle.getBundle("dependencies", Locale.getDefault());
 
