@@ -30,6 +30,7 @@ public class EmpresasServletJSON extends HttpServlet {
 	try {
 	    response.setContentType("application/json");
 	    response.getWriter().print(json);
+	    System.out.println(response.getContentType());
 
 	} catch (IOException e) {
 	    throw new ServletException(e);

@@ -31,7 +31,7 @@ public class EmpresasServletXML extends HttpServlet {
 	String xml = xStream.toXML(empresas);
 
 	try {
-	    response.setContentType("application/xml");
+	    response.setContentType("application/json");
 	    response.getWriter().print(xml);
 
 	} catch (IOException e) {
