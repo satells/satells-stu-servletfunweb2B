@@ -22,7 +22,7 @@ public class EmpresasServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	super.service(request, response);
+
 	List<Empresa> empresasList = new Banco().getEmpresas();
 	String acceptValue = request.getHeader("Accept");
 	System.out.println(acceptValue);
