@@ -16,7 +16,7 @@ public class MySessionListener implements HttpSessionListener {
 
 	System.out.println("session id: " + session.getId());
 
-	session.setMaxInactiveInterval(30);// in seconds
+	session.setMaxInactiveInterval(120);// in seconds
 	System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
     }
 

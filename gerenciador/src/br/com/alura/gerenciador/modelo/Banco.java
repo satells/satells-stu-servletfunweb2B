@@ -29,7 +29,7 @@ public class Banco {
 	addEmpresa("BESC Distribuidora de Títulos e Valores Mobiliários S.A.");
 	addEmpresa("Brasilian American Merchant Bank");
 
-	addUsuario("ana", "123");
+	addUsuario("heitor", "123");
 	addUsuario("mauro", "123");
     }
 
