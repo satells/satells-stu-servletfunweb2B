@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import br.com.alura.gerenciador.controler.HttpFlow;
 import br.com.alura.gerenciador.controler.Redirect;
 import br.com.alura.gerenciador.modelo.Banco;
-import br.com.alura.gerenciador.modelo.Usuario;
+import br.com.alura.gerenciador.modelo.User;
 
 public class Login implements Acao {
 
@@ -18,14 +18,17 @@ public class Login implements Acao {
 	String login = request.getParameter("login");
 	String senha = request.getParameter("senha");
 
-	Usuario usuario = new Banco().existeUsuario(login, senha);
+	User usuario = new Banco().existeUsuario(login, senha);
 
 	if (usuario != null) {
 
 	    System.out.println("Usuário existe ");
 
-	    HttpSession sessao = request.getSession();
-	    sessao.setAttribute("usuarioLogado", usuario);
+	    HttpSession session = request.getSession();
+	    session.setAttribute("usuarioLogado", usuario);
+	    System.out.println(session.getClass().getName());
+	    System.out.println(session.getId());
+	    System.out.println(usuario);
 
 	    return new Redirect("Main");
 	} else {

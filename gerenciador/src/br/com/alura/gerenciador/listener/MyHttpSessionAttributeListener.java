@@ -9,16 +9,16 @@ public class MyHttpSessionAttributeListener implements HttpSessionAttributeListe
 
     @Override
     public void attributeAdded(HttpSessionBindingEvent se) {
-	System.out.println("attributeAdded: " + se.getName() + " - " + se.getValue());
+	UtilListener.print(this.getClass(), "Attribute Added: ", se.getName(), se.getValue());
     }
 
     @Override
     public void attributeRemoved(HttpSessionBindingEvent se) {
-	System.out.println("attributeRemoved: " + se.getName() + " - " + se.getValue());
+	UtilListener.print(this.getClass(), "Attribute Removed: ", se.getName(), se.getValue());
     }
 
     @Override
     public void attributeReplaced(HttpSessionBindingEvent se) {
-	System.out.println("attributeReplaced: " + se.getName() + " - " + se.getValue());
+	UtilListener.print(this.getClass(), "Attribute Replaced: ", se.getName(), se.getValue());
     }
 }

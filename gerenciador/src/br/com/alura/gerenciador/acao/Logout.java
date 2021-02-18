@@ -14,7 +14,7 @@ public class Logout implements Acao {
     public HttpFlow exec(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 	HttpSession session = request.getSession();
 
-//	session.removeAttribute("usuarioLogado");
+	session.removeAttribute("usuarioLogado");
 	session.invalidate();
 
 	return new Redirect("FormLogin");
